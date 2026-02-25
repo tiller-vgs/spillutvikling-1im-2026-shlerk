@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322da8faeb4802946bbf30fed345672d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  playerSpeed: 6
-  playerRotation: 6
+  playerSpeed: 8
+  playerRotation: 12
 --- !u!58 &1342353726007283938
 CircleCollider2D:
   m_ObjectHideFlags: 0
