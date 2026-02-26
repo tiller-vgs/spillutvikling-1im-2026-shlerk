@@ -37,9 +37,12 @@ public class OverlappBox : MonoBehaviour
         {
             var keyboard = Keyboard.current;
             if (keyboard.eKey.isPressed)
-                Debug.Log("TrurAtHanInteractaEllerno");
-                cam.enabled = true;
-                cam2.enabled = false;
+            {
+                //bytte kamera
+                cam.targetDisplay = 0;
+                cam2.targetDisplay = 1;
+            }
+
         }
         
     }
