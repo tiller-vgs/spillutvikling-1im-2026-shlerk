@@ -5,6 +5,7 @@ public class QueueManager : MonoBehaviour
     public SpriteRenderer spritePrefab;
     public Vector3 SpawnPoint;
     public int antallKunda;
+    public Vector2 offset;
     
     private int i = 0;
     
@@ -15,7 +16,7 @@ public class QueueManager : MonoBehaviour
         {
             Debug.Log(SpawnPoint);
             Instantiate(spritePrefab, SpawnPoint, transform.rotation);
-            SpawnPoint = new (SpawnPoint.x+2, SpawnPoint.y, SpawnPoint.z+2);
+            SpawnPoint = new (SpawnPoint.x+offset.x, SpawnPoint.y, SpawnPoint.z+offset.y);
         }
     }
 

@@ -11,7 +11,6 @@ public class DragAndDrop : MonoBehaviour
     public float Frequency = 5;
     private TargetJoint2D TargetJoint;
     public Camera cam;
-    public float PhysZ;
     
     private bool isDragging = false;
 
@@ -20,20 +19,6 @@ public class DragAndDrop : MonoBehaviour
         Debug.Log("OnMouseDown");
         isDragging = true;
     }
-
-   /*
-    private void OnMouseUp()
-    {
-        isDragging = false;
-        Debug.Log("OnMouseUp");
-    }
-
-    void OnMouseEnter()
-    {
-        Debug.Log("OnMouseEnter");
-    }
-    */
-    
    
     void Update()
     {
@@ -42,46 +27,8 @@ public class DragAndDrop : MonoBehaviour
         Vector2 MouseWPO = cam.ScreenToWorldPoint(MousePos);
 
         RaycastHit2D hit = Physics2D.Raycast(MouseWPO, Vector2.zero);
-
-
-        if (hit.collider)
-        {
-            Debug.Log("Collided");
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                isDragging = true;
-                Debug.Log("OnMouseDown");
-            }
-            
-            if (!Mouse.current.leftButton.IsPressed())
-            {
-                isDragging = false;
-                Debug.Log("OnMouseUp");
-            }
-        }
-        else
-        {
-            Debug.Log("Not dragging");
-            isDragging = false;
-        }
-
-        
-
-        if (isDragging)
-        {
-            transform.position = (new Vector3(MouseWPO.x,MouseWPO.y,0));
-        }
-        
-        
-        
-        
-        
-        
-        /*
-        Vector3 MousePos = Mouse.current.position.ReadValue();
-        MousePos.z = Mathf.Abs(cam.transform.position.z);
+    
         var WorldPos = cam.ScreenToWorldPoint(MousePos);
-        //Debug.Log(WorldPos);
         
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -108,12 +55,10 @@ public class DragAndDrop : MonoBehaviour
             }
         }
         
-        
         if (TargetJoint)
         {
             TargetJoint.target = WorldPos;
         }
-        */
         
     }
 }

@@ -19,12 +19,14 @@ public class CharacterMainScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // laga av marius
         var keyboard = Keyboard.current;
                 float moveY = 0f;
                 float moveX = 0f;
 
                 if (Iscontrolling)
                 {
+                    
                     if (keyboard.aKey.isPressed)
                         moveY = -1f;
                     if (keyboard.dKey.isPressed)
@@ -38,6 +40,8 @@ public class CharacterMainScript : MonoBehaviour
                     float inputMagnitude = Mathf.Clamp(MovementDir.magnitude,0,1);
                     MovementDir.Normalize();
         
+                    // laga av Eivind
+                    // roterer karakter spriten mot gå retningen til spilleren
                     if (MovementDir != Vector2.zero)
                     {
                         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward , MovementDir);
