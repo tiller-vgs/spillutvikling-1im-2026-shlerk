@@ -7,7 +7,11 @@ public class CharacterMainScript : MonoBehaviour
     private Rigidbody2D rb;
     public float playerSpeed;
     public float playerRotation;
+    public float headRotation;
     private bool Iscontrolling = true;
+    public SpriteRenderer headSprite;
+    public SpriteRenderer playerSprite;
+    public Animator playerAnimator;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -39,15 +43,25 @@ public class CharacterMainScript : MonoBehaviour
                     Vector2 MovementDir = new Vector2(moveY, moveX);
                     float inputMagnitude = Mathf.Clamp(MovementDir.magnitude,0,1);
                     MovementDir.Normalize();
-        
+                    
+                    playerAnimator.speed = new Vector2(rb.linearVelocityX,rb.linearVelocityY).magnitude/40;
+                    if (new Vector2(rb.linearVelocityX, rb.linearVelocityY).magnitude == 0)
+                    {
+                        playerAnimator.Play(0);
+                    }
+                        
+                    //playerAnimator.SetFloat("Speed", new Vector2(rb.linearVelocityX,rb.linearVelocityY).magnitude);
+                    Debug.Log(new Vector2(rb.linearVelocityX,rb.linearVelocityY).magnitude);
                     // laga av Eivind
                     // roterer karakter spriten mot gå retningen til spilleren
                     if (MovementDir != Vector2.zero)
                     {
                         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward , MovementDir);
                         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerRotation * Time.deltaTime);
+                        headSprite.transform.rotation = Quaternion.Slerp(headSprite.transform.rotation, targetRotation, headRotation * Time.deltaTime);
                     }
                     rb.linearVelocity = new Vector2(moveY * playerSpeed, moveX * playerSpeed);
+                    
                 }
         
     }
