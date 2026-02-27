@@ -7,6 +7,7 @@ public class OverlappBox : MonoBehaviour
     public Camera cam;
     public Camera cam2;
     private bool isOverlapping = false;
+    public CharacterMainScript PlayerScript;
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,9 +39,11 @@ public class OverlappBox : MonoBehaviour
             var keyboard = Keyboard.current;
             if (keyboard.eKey.isPressed)
             {
-                //bytte kamera
+                //bytte kamera'
                 cam.targetDisplay = 0;
                 cam2.targetDisplay = 1;
+                Cursor.visible = true;
+                PlayerScript.enabled = false;
             }
 
         }
