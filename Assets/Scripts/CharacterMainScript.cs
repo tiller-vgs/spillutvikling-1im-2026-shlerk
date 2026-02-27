@@ -57,7 +57,7 @@ public class CharacterMainScript : MonoBehaviour
                     if (MovementDir != Vector2.zero)
                     {
                         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward , MovementDir);
-                        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerRotation * Time.deltaTime);
+                        playerSprite.transform.rotation = Quaternion.Slerp(playerSprite.transform.rotation, targetRotation, playerRotation * Time.deltaTime);
                         headSprite.transform.rotation = Quaternion.Slerp(headSprite.transform.rotation, targetRotation, headRotation * Time.deltaTime);
                     }
                     rb.linearVelocity = new Vector2(moveY * playerSpeed, moveX * playerSpeed);
