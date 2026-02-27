@@ -19,6 +19,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         //transform.position = initialPosition;
         
+        // rotere døre mot sin orginale rotasjon etter at den har blitt flytta på
         if (!PlayerUsingDoor)
         {
             float angle = hinge.jointAngle;
@@ -36,6 +37,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
             hinge.motor = motor;
         }
     }
+    
+    // Sjekke om playern røre døra eller ikke for å stopp at døra lukke sæ mens spillern flytte på den.
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
