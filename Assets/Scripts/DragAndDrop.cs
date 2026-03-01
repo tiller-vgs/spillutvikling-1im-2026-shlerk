@@ -11,14 +11,14 @@ public class DragAndDrop : MonoBehaviour
     public float Frequency = 5;
     private TargetJoint2D TargetJoint;
     public Camera cam;
-    
-    private bool isDragging = false;
 
+    /*
     private void OnMouseDown()
     {
         Debug.Log("OnMouseDown");
         isDragging = true;
     }
+    */
    
     void Update()
     {
@@ -28,12 +28,12 @@ public class DragAndDrop : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(MouseWPO, Vector2.zero);
     
-        var WorldPos = cam.ScreenToWorldPoint(MousePos);
+        Vector3 WorldPos = cam.ScreenToWorldPoint(MousePos);
         
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Debug.Log(MousePos);
-            var collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
+            //Debug.Log(MousePos);
+            Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
             if (!collider)
                 return;
             
