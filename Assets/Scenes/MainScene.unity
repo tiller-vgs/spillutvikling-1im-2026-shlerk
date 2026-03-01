@@ -776,7 +776,8 @@ PrefabInstance:
       propertyPath: m_Target.y
       value: 1.45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6858638422520457959, guid: 285f2af39ae5c3d4a852e2d39f042cfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1072,29 +1073,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 78.461}
---- !u!1 &954851698 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3406542798179931139, guid: 285f2af39ae5c3d4a852e2d39f042cfe, type: 3}
-  m_PrefabInstance: {fileID: 1158112553}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &954851705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954851698}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbfcec33ad40a14188f9af59fecff9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragAndDrop
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  Damping: 1
-  Frequency: 5
-  cam: {fileID: 2088008279}
 --- !u!1001 &954987987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1208,9 +1186,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 9a61b22a3eba677469ea2d1141cfce72, type: 3}
+  m_Resource: {fileID: 8300000, guid: d470b43ac389c9444946dd6083af84b6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1309,7 +1287,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &993429489
+--- !u!43 &1016349827
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1710,7 +1688,8 @@ PrefabInstance:
       propertyPath: m_Target.y
       value: 1.45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6858638422520457959, guid: 285f2af39ae5c3d4a852e2d39f042cfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1795,13 +1774,11 @@ PrefabInstance:
       propertyPath: m_Target.y
       value: -0.000000033924806
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6858638422520457959, guid: 285f2af39ae5c3d4a852e2d39f042cfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3406542798179931139, guid: 285f2af39ae5c3d4a852e2d39f042cfe, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 954851705}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 285f2af39ae5c3d4a852e2d39f042cfe, type: 3}
 --- !u!1001 &1208963973
 PrefabInstance:
