@@ -11,8 +11,6 @@ public class DragAndDrop : MonoBehaviour
     public float Frequency = 5;
     private TargetJoint2D TargetJoint;
     public Camera cam;
-    
-    private bool isDragging = false;
 
     /*
     private void OnMouseDown()
@@ -34,7 +32,7 @@ public class DragAndDrop : MonoBehaviour
         
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Debug.Log(MousePos);
+            //Debug.Log(MousePos);
             Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
             if (!collider)
                 return;

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4985112058455892513}
   - component: {fileID: 3069375134814677314}
   - component: {fileID: 1930140470566656718}
-  - component: {fileID: 6858638422520457959}
   m_Layer: 6
   m_Name: grabableObject
   m_TagString: Untagged
@@ -167,22 +166,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &6858638422520457959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3406542798179931139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbfcec33ad40a14188f9af59fecff9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragAndDrop
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  Damping: 1
-  Frequency: 5
-  cam: {fileID: 0}
-  PhysZ: 0
