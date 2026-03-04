@@ -12,12 +12,15 @@ public class CustomerScript : MonoBehaviour
         BookIn, BookOut, BuyRoom
     }
 
+    [SerializeField] private AudioClip[] audioClips;
+    private AudioSource audioSource;
+
     private ReceptionTasks currentTask;
     private Personalities personality;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         moodMeter -= Random.Range(0.1f, 60f);
         int index = Random.Range(0, 3);
 
@@ -38,6 +41,13 @@ public class CustomerScript : MonoBehaviour
             case 2: personality = Personalities.Angry; break;
             case 3: personality = Personalities.Karen; break;
         }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // Skal gjøre sånn at dette blir styrt av queueManager eller noe
+        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
     }
 
     // Update is called once per frame
