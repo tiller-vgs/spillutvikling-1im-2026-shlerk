@@ -18,4 +18,6 @@ public class FollowCursor : MonoBehaviour
         
         //Debug.Log(ViewPos);
     }
+    
+    // legg te en variable for main andre kamera og når du trykke på e så bli du sendt tilbake plus en bool om det ska vis cursor eller ikke
 }
