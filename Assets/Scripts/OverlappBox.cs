@@ -6,24 +6,25 @@ public class OverlappBox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Camera cam;
     public Camera cam2;
-    private bool isOverlapping = false;
+    private bool bisOverlapping = false;
+    public CharacterMainScript PlayerScript;
     
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if (!collision.gameObject.CompareTag("Player"))
         {
-            isOverlapping = true;
+            bisOverlapping = true;
         }
         else
         {
-            isOverlapping = false;
+            bisOverlapping = false;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        isOverlapping = false;
+        bisOverlapping = false;
     }
     void Start()
     {
@@ -33,14 +34,16 @@ public class OverlappBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isOverlapping)
+        if (bisOverlapping)
         {
             var keyboard = Keyboard.current;
             if (keyboard.eKey.isPressed)
             {
-                //bytte kamera
+                //bytte kamera'
                 cam.targetDisplay = 0;
                 cam2.targetDisplay = 1;
+                Cursor.visible = true;
+                PlayerScript.enabled = false;
             }
 
         }
