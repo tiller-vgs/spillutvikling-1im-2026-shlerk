@@ -8,10 +8,14 @@ public class ChangeSong : MonoBehaviour
     public float fade = 2f;
     private bool bIsInside;
 
+
+    void Start()
+    {
+        New.volume = 0;
+    }
     
     private IEnumerator FadeMusic(AudioSource outSource, AudioSource inSource)
     {
-        inSource.Play();
         float time = 0;
         while (time < fade)
         {
@@ -20,7 +24,6 @@ public class ChangeSong : MonoBehaviour
             inSource.volume = Mathf.Lerp(0, 1, time / fade);
             yield return null;
         }
-        outSource.Stop();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
