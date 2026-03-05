@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class QueueManager : MonoBehaviour
 {
-    public SpriteRenderer spritePrefab;
+    public GameObject spritePrefab;
 
     public int antallKunda;
     public Vector2 offset;
