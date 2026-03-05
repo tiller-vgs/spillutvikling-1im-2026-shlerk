@@ -387,6 +387,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardReaderScene (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5952567389245106236, guid: 2a515aaf8f1ac4d41805a1385c133be8, type: 3}
+      propertyPath: cam2
+      value: 
+      objectReference: {fileID: 2088008279}
+    - target: {fileID: 5952567389245106236, guid: 2a515aaf8f1ac4d41805a1385c133be8, type: 3}
+      propertyPath: PlayerScript
+      value: 
+      objectReference: {fileID: 1299132778}
     - target: {fileID: 7783235377810724413, guid: 2a515aaf8f1ac4d41805a1385c133be8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 94.35
@@ -2553,7 +2561,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   followstrength: 5
   cam: {fileID: 2088008279}
+  cam2: {fileID: 519420031}
+  goBackToPlayer: 1
   max: 11
+  PlayerScript: {fileID: 1299132778}
 --- !u!1001 &2094084037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2565,6 +2576,18 @@ PrefabInstance:
     - target: {fileID: 3334823169758487536, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: m_Name
       value: WashRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552316702494617695, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: cam2
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 4552316702494617695, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: PlayerScript
+      value: 
+      objectReference: {fileID: 1299132778}
+    - target: {fileID: 4552316702494617695, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: goBackToPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9017130672350913957, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: m_LocalPosition.x
