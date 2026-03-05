@@ -47,7 +47,7 @@ public class CustomerScript : MonoBehaviour
     void Start()
     {
         // Skal gjøre sånn at dette blir styrt av queueManager eller noe
-        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+        //playRandomVoiceLine();
     }
 
     // Update is called once per frame
@@ -60,5 +60,10 @@ public class CustomerScript : MonoBehaviour
             case Personalities.Angry: moodMeter -= 4 * Time.deltaTime; break;
             case Personalities.Karen: moodMeter -= 6 * Time.deltaTime; break;
         }
+    }
+
+    public void playRandomVoiceLine()
+    {
+        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
     }
 }
