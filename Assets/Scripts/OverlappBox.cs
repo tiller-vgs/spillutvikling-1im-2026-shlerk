@@ -11,10 +11,14 @@ public class OverlappBox : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Du har enttra boksen!!!!!!!!!!!");
             bisOverlapping = true;
+        }
+        else
+        {
+            bisOverlapping = false;
         }
     }
 

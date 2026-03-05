@@ -21,6 +21,7 @@ public class FollowCursor : MonoBehaviour
 
         var keyboard = Keyboard.current;
 
+        Debug.Log(cam.targetDisplay);
         
         if (cam.targetDisplay == 0)
         {
@@ -35,6 +36,7 @@ public class FollowCursor : MonoBehaviour
                     PlayerScript.enabled = true;
                     Cursor.visible = false;
                 }
+                
             }
         }
         //Debug.Log(ViewPos);
