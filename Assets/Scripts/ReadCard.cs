@@ -34,10 +34,12 @@ public class ReadCard : MonoBehaviour
     {
         if (!obj.GetComponent<Payment>().bSwipedCard && card != null)
         {
-                if (card.GetComponent<Rigidbody2D>().linearVelocity.magnitude >= 2.9 &&
-                    card.GetComponent<Rigidbody2D>().linearVelocity.magnitude <= 3.4)
+            Debug.Log(Mathf.Abs(card.GetComponent<Rigidbody2D>().linearVelocity.y));
+            Debug.Log(currentTime);
+                if (Mathf.Abs(card.GetComponent<Rigidbody2D>().linearVelocity.y) >= 1.5 &&
+                    Mathf.Abs(card.GetComponent<Rigidbody2D>().linearVelocity.y) <= 2)
                 {
-                    //Debug.Log(card.GetComponent<Rigidbody2D>().linearVelocity.magnitude);
+                    
                     currentTime += Time.deltaTime;
                     Debug.Log(currentTime);
                 }
@@ -51,14 +53,13 @@ public class ReadCard : MonoBehaviour
                     currentTime = 0;
                 }
 
-                if (currentTime >= 0.06f)
+                if (currentTime >= 0.12f)
                 {
                     obj.GetComponent<Payment>().bSwipedCard = true;
                     Debug.Log("Swiped Card");
                     spriteRenderer.sprite = did;
                     StartCoroutine(Delay());
                 }
-
         }
     }
 }
