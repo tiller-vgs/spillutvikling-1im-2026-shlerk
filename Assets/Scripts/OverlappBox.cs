@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class OverlappBox : MonoBehaviour
 {
@@ -8,7 +10,16 @@ public class OverlappBox : MonoBehaviour
     public Camera cam2;
     private bool bisOverlapping = false;
     public CharacterMainScript PlayerScript;
+    private bool IsActive;
     
+    private Keyboard keyboard = Keyboard.current;
+    /*
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f);
+        PlayerScript.GameObject().GetComponent<CharacterMainScript>().IsInteractActive = true;
+    }
+    */
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
@@ -26,27 +37,34 @@ public class OverlappBox : MonoBehaviour
     {
         bisOverlapping = false;
     }
-    void Start()
+
+    void SwitchScene()
     {
-        
+        //Debug.Log("TESTESTESTESTESTESTESTSESTSETSETES");
+        //bytte kamera
+        PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive = false;
+        StartCoroutine(PlayerScript.GameObject().GetComponent<CharacterMainScript>().ResetInteract());
+        cam.targetDisplay = 0;
+        cam2.targetDisplay = 1;
+        Cursor.visible = true;
+        PlayerScript.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bisOverlapping)
+        if (cam2.targetDisplay == 0)
         {
-            var keyboard = Keyboard.current;
-            if (keyboard.eKey.isPressed)
+            if (bisOverlapping)
             {
-                //bytte kamera'
-                cam.targetDisplay = 0;
-                cam2.targetDisplay = 1;
-                Cursor.visible = true;
-                PlayerScript.enabled = false;
-            }
+                if (keyboard.eKey.wasPressedThisFrame && PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive)
+                {
+                    //Debug.Log(PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive);
+                    SwitchScene();
+                }
 
+            }
+            
         }
-        
     }
 }
