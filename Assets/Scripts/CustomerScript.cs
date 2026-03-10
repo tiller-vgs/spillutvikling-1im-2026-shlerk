@@ -12,6 +12,9 @@ public class CustomerScript : MonoBehaviour
         BookIn, BookOut, BuyRoom
     }
 
+    public SpriteRenderer renderer;
+    public Sprite[] CustomerSprites;
+
     [SerializeField] private AudioClip[] audioClips;
     private AudioSource audioSource;
 
@@ -20,6 +23,7 @@ public class CustomerScript : MonoBehaviour
 
     void Awake()
     {
+        renderer.sprite = CustomerSprites[Random.Range(0, CustomerSprites.Length)];
         audioSource = GetComponent<AudioSource>();
         moodMeter -= Random.Range(0.1f, 60f);
         int index = Random.Range(0, 3);
