@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DragAndDrop : MonoBehaviour
+public class DragAndDropAuto : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public LayerMask LayerMask;
@@ -11,6 +11,7 @@ public class DragAndDrop : MonoBehaviour
     public float Frequency = 5;
     private TargetJoint2D TargetJoint;
     public Camera cam;
+    private Vector3 WorldPos;
 
     /*
     private void OnMouseDown()
@@ -19,6 +20,22 @@ public class DragAndDrop : MonoBehaviour
         isDragging = true;
     }
     */
+
+    public void AttachPhysics()
+    {
+        Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
+        if (!collider)
+            return;
+            
+        Rigidbody2D body = collider.attachedRigidbody;
+        if (!body)
+            return;
+
+        TargetJoint = body.gameObject.AddComponent<TargetJoint2D>();
+        TargetJoint.dampingRatio = Damping;
+        TargetJoint.frequency = Frequency;
+        TargetJoint.anchor = body.transform.InverseTransformPoint (WorldPos);
+    }
    
     void Update()
     {
@@ -30,25 +47,15 @@ public class DragAndDrop : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(MouseWPO, Vector2.zero);
     
-            Vector3 WorldPos = cam.ScreenToWorldPoint(MousePos);
-        
+            WorldPos = cam.ScreenToWorldPoint(MousePos);
+            
+
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                //Debug.Log(MousePos);
-                Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
-                if (!collider)
-                    return;
-            
-                Rigidbody2D body = collider.attachedRigidbody;
-                if (!body)
-                    return;
-
-                TargetJoint = body.gameObject.AddComponent<TargetJoint2D>();
-                TargetJoint.dampingRatio = Damping;
-                TargetJoint.frequency = Frequency;
-                TargetJoint.anchor = body.transform.InverseTransformPoint (WorldPos);
+                AttachPhysics();
             }
-            else if (!Mouse.current.leftButton.isPressed)
+
+            if (!Mouse.current.leftButton.isPressed)
             {
                 if (TargetJoint != null)
                 {

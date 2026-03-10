@@ -3,26 +3,34 @@ using UnityEngine;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     HingeJoint2D hinge;
+    Rigidbody2D rb;
     bool PlayerUsingDoor = false;
     public float CloseSpeed = 5f;
     public float CloseSpeedMax = 200f;
-    //private Vector3 initialPosition = Vector3.zero;
-    
+
+    public AudioClip[] creakSounds;
+    public float creakVolumeMultiplier = 1f;
+    public float creakAngleChangeThreshold = 0.5f; // degrees/frame til å trigger creak
+    public float creakCooldown = 0.3f;
+
+    private float lastCreakTime = 0f;
+    private float lastAngle = 0f;
+
     void Start()
     {
-        GetComponent<Rigidbody2D>().centerOfMass = Vector2.zero;
-        //initialPosition = transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        rb.centerOfMass = Vector2.zero;
         hinge = GetComponent<HingeJoint2D>();
+        lastAngle = hinge.jointAngle;
     }
 
     void FixedUpdate()
     {
-        //transform.position = initialPosition;
-        
-        // rotere døre mot sin orginale rotasjon etter at den har blitt flytta på
+        float angle = hinge.jointAngle;
+        float angleDelta = Mathf.Abs(angle - lastAngle);
+
         if (!PlayerUsingDoor)
         {
-            float angle = hinge.jointAngle;
             JointMotor2D motor = hinge.motor;
             motor.motorSpeed = -angle * CloseSpeed;
             motor.maxMotorTorque = CloseSpeedMax;
@@ -30,28 +38,41 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         else
         {
-            //transform.position = initialPosition;
             JointMotor2D motor = hinge.motor;
             motor.motorSpeed = 0f;
             motor.maxMotorTorque = 0f;
             hinge.motor = motor;
         }
+
+        TryPlayCreak(angleDelta);
+        lastAngle = angle;
     }
-    
-    // Sjekke om playern røre døra eller ikke for å stopp at døra lukke sæ mens spillern flytte på den.
+
+    void TryPlayCreak(float angleDelta)
+    {
+        if (creakSounds == null || creakSounds.Length == 0) return;
+        if (Time.time - lastCreakTime < creakCooldown) return;
+        if (angleDelta < creakAngleChangeThreshold) return;
+
+        lastCreakTime = Time.time;
+
+        AudioClip clip = creakSounds[Random.Range(0, creakSounds.Length)];
+
+        float t = Mathf.InverseLerp(creakAngleChangeThreshold, 5f, angleDelta);
+        float volume = Mathf.Lerp(0.2f, 1f, t) * creakVolumeMultiplier;
+
+        AudioSource.PlayClipAtPoint(clip, transform.position, volume);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             PlayerUsingDoor = true;
-        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             PlayerUsingDoor = false;
-        }
     }
 }
