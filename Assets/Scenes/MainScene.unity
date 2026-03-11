@@ -175,6 +175,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableDoor (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: creakSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -433,6 +449,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableDoor (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: creakSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1231,6 +1263,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableDoor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: creakSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1684,6 +1732,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableDoor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: creakSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2106,6 +2170,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableDoor (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: creakSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2623,6 +2703,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableDoor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: creakSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+    - target: {fileID: 8304976284264821800, guid: 3a3ac7d5b449f6a4cb826191e732fd8a, type: 3}
+      propertyPath: 'creakSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
