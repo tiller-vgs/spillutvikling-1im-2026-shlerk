@@ -162,6 +162,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   CloseSpeed: 5
   CloseSpeedMax: 200
+  creakSounds:
+  - {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+  - {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+  - {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
+  creakVolumeMultiplier: 1
+  creakAngleChangeThreshold: 0.5
+  creakCooldown: 0.3
 --- !u!61 &4038573965990026326
 BoxCollider2D:
   m_ObjectHideFlags: 0

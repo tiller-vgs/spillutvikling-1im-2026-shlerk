@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class FollowCursor : MonoBehaviour
 {
 
     public float followstrength = 1;
     public Camera cam;
+    public Camera cam2;
+    public bool goBackToPlayer;
     public float max;
     private Vector2 aspectRatio = new Vector2(16, 9);
     

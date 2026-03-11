@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class CharacterMainScript : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class CharacterMainScript : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Animator playerAnimator;
     
+    public bool isInteractActive;
+    
+    
+    public IEnumerator ResetInteract()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isInteractActive = true;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -51,7 +60,7 @@ public class CharacterMainScript : MonoBehaviour
                     }
                         
                     //playerAnimator.SetFloat("Speed", new Vector2(rb.linearVelocityX,rb.linearVelocityY).magnitude);
-                    Debug.Log(new Vector2(rb.linearVelocityX,rb.linearVelocityY).magnitude);
+                    //Debug.Log(new Vector2(rb.linearVelocityX,rb.linearVelocityY).magnitude);
                     // laga av Eivind
                     // roterer karakter spriten mot gå retningen til spilleren
                     if (MovementDir != Vector2.zero)

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8275718923287465267, guid: c3133bcc531a9af4b92078f24e56885f, type: 3}
+  m_Sprite: {fileID: 2309154392373476237, guid: 0ccac194e45cf9242900a8d25695c93a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,6 +106,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerScript
   moodMeter: 100
+  renderer: {fileID: 7326970306053941151}
+  CustomerSprites:
+  - {fileID: -4026759245930485628, guid: 82ae898527b272347aa2284f701432b6, type: 3}
+  - {fileID: 5119780517541980327, guid: 082e3c746e1e4a34495f47daf36b410c, type: 3}
+  - {fileID: 1560445387809573902, guid: 2d0b6a9ea1d6d00459b63728495cd12a, type: 3}
+  - {fileID: 2309154392373476237, guid: 0ccac194e45cf9242900a8d25695c93a, type: 3}
+  - {fileID: -3119346605840616329, guid: 07f9ac2db8bf1fc42b49576dae3a8db6, type: 3}
+  - {fileID: -8797858245180826580, guid: 18d7427401b0bab469ba57289fdc6feb, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 340ca71aca9d0bc4bb8baaccf2a2ea32, type: 3}
   - {fileID: 8300000, guid: b1c5827ce3efb194a82eb93bd572ed6f, type: 3}
