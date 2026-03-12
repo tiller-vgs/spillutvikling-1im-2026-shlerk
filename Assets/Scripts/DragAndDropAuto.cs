@@ -55,6 +55,7 @@ public class DragAndDropAuto : MonoBehaviour
                 AttachPhysics();
             }
 
+            /*
             if (!Mouse.current.leftButton.isPressed)
             {
                 if (TargetJoint != null)
@@ -63,6 +64,7 @@ public class DragAndDropAuto : MonoBehaviour
                     TargetJoint = null;
                 }
             }
+            */
         
             if (TargetJoint)
             {
