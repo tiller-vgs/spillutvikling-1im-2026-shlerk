@@ -14,7 +14,7 @@ public class CharacterMainScript : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Animator playerAnimator;
     
-    public bool isInteractActive;
+    public bool isInteractActive = true;
     
     
     public IEnumerator ResetInteract()
@@ -27,6 +27,7 @@ public class CharacterMainScript : MonoBehaviour
     {
         Cursor.visible = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
+        isInteractActive = true;
     }
 
     // Update is called once per frame
