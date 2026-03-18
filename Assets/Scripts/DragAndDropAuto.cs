@@ -21,6 +21,7 @@ public class DragAndDropAuto : MonoBehaviour
     }
     */
 
+    
     public void AttachPhysics()
     {
         Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
@@ -55,6 +56,7 @@ public class DragAndDropAuto : MonoBehaviour
                 AttachPhysics();
             }
 
+            /*
             if (!Mouse.current.leftButton.isPressed)
             {
                 if (TargetJoint != null)
@@ -63,6 +65,7 @@ public class DragAndDropAuto : MonoBehaviour
                     TargetJoint = null;
                 }
             }
+            */
         
             if (TargetJoint)
             {

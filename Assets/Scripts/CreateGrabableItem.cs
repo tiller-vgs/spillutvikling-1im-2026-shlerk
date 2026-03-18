@@ -37,7 +37,7 @@ public class CreateGrabableItem : MonoBehaviour
                 bCreatedObj = true;
                 Debug.Log("hasInteracted with Cloth");
                 Instantiate(PhysicsObj, WorldPos, transform.rotation);
-                PhysicsController.GameObject().GetComponent<DragAndDropAuto>().AttachPhysics();
+                //PhysicsController.GameObject().GetComponent<DragAndDropAuto>().AttachPhysics();
             }
         }
     }
