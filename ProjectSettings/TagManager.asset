@@ -6,6 +6,7 @@ TagManager:
   tags:
   - numbers
   - Card
+  - Phys
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,7 @@ public class DragAndDropAuto : MonoBehaviour
     }
     */
 
+    
     public void AttachPhysics()
     {
         Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
