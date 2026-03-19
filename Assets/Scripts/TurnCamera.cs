@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class TurnCamera : MonoBehaviour
 {
@@ -8,12 +10,8 @@ public class TurnCamera : MonoBehaviour
     public Camera cam;
     private bool bisturned;
     private Keyboard keyboard = Keyboard.current;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+    public FollowCursor followCursor;
+    
     // Update is called once per frame
     void Update()
     {
@@ -23,13 +21,13 @@ public class TurnCamera : MonoBehaviour
             if (keyboard.dKey.wasPressedThisFrame && !bisturned)
             {
                 bisturned = true;
-                Debug.Log("Bisturneotowejrgoiwejroibnweirnweoirbiusrhbuiwhrtiuhrwuibhwriuthbuwrthuirwhtubhrwtuibhrwtubhwrtiubhwruitbhed");
-                cam.transform.rotation = Quaternion.Euler(cam.transform.rotation.eulerAngles.x, cam.transform.rotation.eulerAngles.y+90, cam.transform.rotation.eulerAngles.z);
+                followCursor.GetComponent<FollowCursor>().turn = 90;
             }
 
             if (keyboard.aKey.wasPressedThisFrame && bisturned)
             {
                 bisturned = false;
+                followCursor.GetComponent<FollowCursor>().turn = 0;
             }
         }
     }
