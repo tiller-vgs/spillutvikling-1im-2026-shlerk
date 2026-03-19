@@ -66,6 +66,5 @@ public class OverlappBox : MonoBehaviour
             }
             
         }
-        Debug.Log(PlayerScript.isInteractActive);
     }
 }

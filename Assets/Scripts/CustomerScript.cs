@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 public class CustomerScript : MonoBehaviour
@@ -19,9 +18,11 @@ public class CustomerScript : MonoBehaviour
     [SerializeField] private AudioClip[] audioClips;
     private AudioSource audioSource;
     [SerializeField] private TextMesh phrase;
+    [SerializeField] private TextMesh moodMeterDisplay;
 
     private ReceptionTasks currentTask;
     private Personalities personality;
+    public bool moodMeterDecreases;
 
     void Awake()
     {
@@ -65,6 +66,7 @@ public class CustomerScript : MonoBehaviour
             case Personalities.Angry: moodMeter -= 4 * Time.deltaTime; break;
             case Personalities.Karen: moodMeter -= 6 * Time.deltaTime; break;
         }
+        moodMeterDisplay.text = moodMeter.ToString("F1");
     }
 
     public void playRandomVoiceLine()

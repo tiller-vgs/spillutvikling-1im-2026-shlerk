@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class QueueManager : MonoBehaviour
 {
@@ -10,32 +11,25 @@ public class QueueManager : MonoBehaviour
     public Vector2 offset;
     public Camera Cam;
 
-    public List<GameObject> customers;
+    public Queue<GameObject> customers;
     
     private Vector3 SpawnPoint;
 
     private float timer = 0;
     private float timeUntilVoiceActivation = 0;
+    private Keyboard keyboard = Keyboard.current;
     
     // Hvem gjorde dette her 😭
     private int i = 0;
 
     void Awake()
     {
-        customers = new List<GameObject>();
+        customers = new Queue<GameObject>();
     }
 
     void Start()
     {
-        SpawnPoint = transform.position;
-        //lage like mange kunder som antall kunder si
-        for (i=0;i <= antallKunda; i++)
-        {
-            Debug.Log(SpawnPoint);
-            
-            customers.Add(Instantiate(customerPrefab, SpawnPoint, transform.rotation));
-            SpawnPoint = new (SpawnPoint.x+offset.x, SpawnPoint.y, SpawnPoint.z+offset.y);
-        }
+        AddCustomer(antallKunda);
     }
 
     // Update is called once per frame
@@ -47,7 +41,9 @@ public class QueueManager : MonoBehaviour
             if (timer >= timeUntilVoiceActivation)
             {
                 timeUntilVoiceActivation = Random.Range(3f, 10f);
-                customers[Random.Range(0, antallKunda)].GetComponent<CustomerScript>().playRandomVoiceLine();
+                if (customers.Count > 0){
+                    customers.Peek().GetComponent<CustomerScript>().playRandomVoiceLine();
+                }
                 timer = 0;
             }
         }
@@ -56,5 +52,48 @@ public class QueueManager : MonoBehaviour
     private IEnumerator Voicelines()
     {
         yield return new WaitForSeconds(2);
+    }
+
+    void UpdateQueuePos()
+    {
+        int index = 0;
+        Vector3 pos = transform.position;
+
+        foreach(GameObject customer in customers)
+        {
+            Vector3 targetpos = new Vector3(
+                pos.x + offset.x * index,
+                pos.y,
+                pos.z + offset.y * index
+            );
+
+            customer.transform.position = targetpos;
+            index++;
+        }
+    }
+
+    public void RemoveCustomer()
+    {
+        if (customers.Count > 0)
+        {
+            GameObject removedCustomer = customers.Dequeue();
+            Destroy(removedCustomer);
+
+            UpdateQueuePos();
+        }
+    }
+
+    public void AddCustomer(int amount)
+    {
+        SpawnPoint = transform.position;
+        //lage like mange kunder som antall kunder si
+        for (i=0; i < amount; i++)
+        {
+            Debug.Log(SpawnPoint);
+            
+            customers.Enqueue(Instantiate(customerPrefab, SpawnPoint, transform.rotation));
+            SpawnPoint = new (SpawnPoint.x+offset.x, SpawnPoint.y, SpawnPoint.z+offset.y);
+            UpdateQueuePos();
+        }
     }
 }
