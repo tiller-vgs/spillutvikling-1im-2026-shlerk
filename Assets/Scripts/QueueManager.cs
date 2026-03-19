@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class QueueManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class QueueManager : MonoBehaviour
 
     private float timer = 0;
     private float timeUntilVoiceActivation = 0;
+    private Keyboard keyboard = Keyboard.current;
     
     // Hvem gjorde dette her 😭
     private int i = 0;
@@ -27,15 +29,7 @@ public class QueueManager : MonoBehaviour
 
     void Start()
     {
-        SpawnPoint = transform.position;
-        //lage like mange kunder som antall kunder si
-        for (i=0; i < antallKunda; i++)
-        {
-            Debug.Log(SpawnPoint);
-            
-            customers.Enqueue(Instantiate(customerPrefab, SpawnPoint, transform.rotation));
-            SpawnPoint = new (SpawnPoint.x+offset.x, SpawnPoint.y, SpawnPoint.z+offset.y);
-        }
+        AddCustomer(antallKunda);
     }
 
     // Update is called once per frame
@@ -62,6 +56,44 @@ public class QueueManager : MonoBehaviour
 
     void UpdateQueuePos()
     {
-        
+        int index = 0;
+        Vector3 pos = transform.position;
+
+        foreach(GameObject customer in customers)
+        {
+            Vector3 targetpos = new Vector3(
+                pos.x + offset.x * index,
+                pos.y,
+                pos.z + offset.y * index
+            );
+
+            customer.transform.position = targetpos;
+            index++;
+        }
+    }
+
+    public void RemoveCustomer()
+    {
+        if (customers.Count > 0)
+        {
+            GameObject removedCustomer = customers.Dequeue();
+            Destroy(removedCustomer);
+
+            UpdateQueuePos();
+        }
+    }
+
+    public void AddCustomer(int amount)
+    {
+        SpawnPoint = transform.position;
+        //lage like mange kunder som antall kunder si
+        for (i=0; i < amount; i++)
+        {
+            Debug.Log(SpawnPoint);
+            
+            customers.Enqueue(Instantiate(customerPrefab, SpawnPoint, transform.rotation));
+            SpawnPoint = new (SpawnPoint.x+offset.x, SpawnPoint.y, SpawnPoint.z+offset.y);
+            UpdateQueuePos();
+        }
     }
 }
