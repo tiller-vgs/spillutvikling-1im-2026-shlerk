@@ -59,18 +59,21 @@ public class CustomerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (personality)
-        {
-            case Personalities.Chill: moodMeter -= 1 * Time.deltaTime; break;
-            case Personalities.Normal: moodMeter -= 2 * Time.deltaTime; break;
-            case Personalities.Angry: moodMeter -= 4 * Time.deltaTime; break;
-            case Personalities.Karen: moodMeter -= 6 * Time.deltaTime; break;
-        }
         moodMeterDisplay.text = moodMeter.ToString("F1");
     }
 
     public void playRandomVoiceLine()
     {
         audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+    }
+
+    public void DecreaseMood(float amount)
+    {
+        moodMeter -= amount * Time.deltaTime;
+    }
+
+    public Personalities GetPersonality()
+    {
+        return personality;
     }
 }
