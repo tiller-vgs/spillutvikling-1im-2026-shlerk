@@ -12,18 +12,21 @@ public class CustomerScript : MonoBehaviour
         BookIn, BookOut, BuyRoom
     }
 
-    public SpriteRenderer renderer;
+    public SpriteRenderer spriteRenderer;
     public Sprite[] CustomerSprites;
 
     [SerializeField] private AudioClip[] audioClips;
     private AudioSource audioSource;
+    [SerializeField] private TextMesh phrase;
+    [SerializeField] private TextMesh moodMeterDisplay;
 
     private ReceptionTasks currentTask;
     private Personalities personality;
+    public bool moodMeterDecreases;
 
     void Awake()
     {
-        renderer.sprite = CustomerSprites[Random.Range(0, CustomerSprites.Length)];
+        spriteRenderer.sprite = CustomerSprites[Random.Range(0, CustomerSprites.Length)];
         audioSource = GetComponent<AudioSource>();
         moodMeter -= Random.Range(0.1f, 60f);
         int index = Random.Range(0, 3);
@@ -50,8 +53,7 @@ public class CustomerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Skal gjøre sånn at dette blir styrt av queueManager eller noe
-        //playRandomVoiceLine();
+        phrase.text = "du lukter\nfeta... ost";
     }
 
     // Update is called once per frame
@@ -64,6 +66,7 @@ public class CustomerScript : MonoBehaviour
             case Personalities.Angry: moodMeter -= 4 * Time.deltaTime; break;
             case Personalities.Karen: moodMeter -= 6 * Time.deltaTime; break;
         }
+        moodMeterDisplay.text = moodMeter.ToString("F1");
     }
 
     public void playRandomVoiceLine()

@@ -57,7 +57,7 @@ public class OverlappBox : MonoBehaviour
         {
             if (bisOverlapping)
             {
-                if (keyboard.eKey.wasPressedThisFrame && PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive)
+                if (keyboard.eKey.wasPressedThisFrame && PlayerScript.isInteractActive)
                 {
                     //Debug.Log(PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive);
                     SwitchScene();
