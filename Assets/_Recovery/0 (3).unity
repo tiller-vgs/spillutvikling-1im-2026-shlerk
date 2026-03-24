@@ -1525,16 +1525,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FootstepScript
   footstepClips:
-  - {fileID: 8300000, guid: cb3474427a8b97841a7db09b9c5f7c8a, type: 3}
-  - {fileID: 8300000, guid: e76f933853eb62645ac186f258411d93, type: 3}
-  - {fileID: 8300000, guid: a68d96c7f4e1a3b458f734e7a773dc96, type: 3}
+  - {fileID: 8300000, guid: c34f0707a0ac17343ad81d4f78260f04, type: 3}
+  - {fileID: 8300000, guid: 41d990384dbc8e84199df06924a68f11, type: 3}
+  - {fileID: 8300000, guid: b6880411c2b2e314fa459c88dbfd7bf4, type: 3}
   minSpeedThreshold: 0.5
   stepIntervalAtFullSpeed: 0.35
-  fullSpeed: 5
-  volume: 0.139
+  fullSpeed: 4.5
+  volume: 0.28
   randomisePitch: 1
-  pitchMin: 0.9
-  pitchMax: 1.1
+  pitchMin: 0.4
+  pitchMax: 1.5
 --- !u!82 &1299132781
 AudioSource:
   m_ObjectHideFlags: 0

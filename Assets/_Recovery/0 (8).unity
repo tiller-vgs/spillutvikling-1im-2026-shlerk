@@ -597,10 +597,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5382451421025026022, guid: 2466101132ebcdb4f80798be494dbaee, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1299132781}
+      addedObject: {fileID: 1299132784}
     - targetCorrespondingSourceObject: {fileID: 5382451421025026022, guid: 2466101132ebcdb4f80798be494dbaee, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1299132780}
+      addedObject: {fileID: 1299132783}
   m_SourcePrefab: {fileID: 100100000, guid: 2466101132ebcdb4f80798be494dbaee, type: 3}
 --- !u!1001 &483722111
 PrefabInstance:
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322da8faeb4802946bbf30fed345672d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &1299132780
+--- !u!114 &1299132783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1527,15 +1527,14 @@ MonoBehaviour:
   footstepClips:
   - {fileID: 8300000, guid: cb3474427a8b97841a7db09b9c5f7c8a, type: 3}
   - {fileID: 8300000, guid: e76f933853eb62645ac186f258411d93, type: 3}
-  - {fileID: 8300000, guid: a68d96c7f4e1a3b458f734e7a773dc96, type: 3}
   minSpeedThreshold: 0.5
   stepIntervalAtFullSpeed: 0.35
   fullSpeed: 5
-  volume: 0.139
+  volume: 0.121
   randomisePitch: 1
   pitchMin: 0.9
   pitchMax: 1.1
---- !u!82 &1299132781
+--- !u!82 &1299132784
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
