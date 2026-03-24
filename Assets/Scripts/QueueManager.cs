@@ -47,6 +47,33 @@ public class QueueManager : MonoBehaviour
                 timer = 0;
             }
         }
+
+        if (customers.Count > 0)
+        {
+            CustomerScript firstCustomer = customers.Peek().GetComponent<CustomerScript>();
+
+            float moodDrain = 0;
+
+            switch (firstCustomer.GetPersonality())
+            {
+                case CustomerScript.Personalities.Chill: moodDrain = 1; break;
+                case CustomerScript.Personalities.Normal: moodDrain = 2; break;
+                case CustomerScript.Personalities.Angry: moodDrain = 4; break;
+                case CustomerScript.Personalities.Karen: moodDrain = 6; break;
+            }
+
+            firstCustomer.DecreaseMood(moodDrain);
+        }
+
+        if (keyboard.oKey.wasPressedThisFrame)
+        {
+            AddCustomer(1);
+        }
+        
+        if (keyboard.pKey.wasPressedThisFrame)
+        {
+            RemoveCustomer();
+        }
     }
 
     private IEnumerator Voicelines()
