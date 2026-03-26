@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7101154493810656713}
   - component: {fileID: 6544736941852641095}
-  - component: {fileID: 5150980849642246872}
   - component: {fileID: 1586777200287574180}
   - component: {fileID: 8482765090147634463}
-  m_Layer: 0
+  - component: {fileID: 2456588797656565798}
+  m_Layer: 8
   m_Name: PF_UseItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,20 +82,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5150980849642246872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634260503601630985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d751daf408b46704abfa81a53ef4e425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  cam: {fileID: 0}
-  text: {fileID: 8482765090147634463}
 --- !u!23 &1586777200287574180
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -167,6 +153,27 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &2456588797656565798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634260503601630985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9290f1bc582df2b40a7fb82edd1ce2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WashingMachineScript
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  cam: {fileID: 0}
+  text: {fileID: 8482765090147634463}
+  sprite: {fileID: 297589611605366882}
+  Closed: {fileID: 21300000, guid: 2e028dd0fe2807e46929aaaec187b421, type: 3}
+  OpenOff: {fileID: 21300000, guid: 0d7d2e71974bdc74185b7b6f3db18598, type: 3}
+  OpenOn: {fileID: 21300000, guid: b59fce536cd80b94c8f6b158be8ee6b6, type: 3}
 --- !u!1 &7786993405801998450
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2716060293925171689}
   - component: {fileID: 297589611605366882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SHLERK_Vaskemaskin_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 7786993405801998450}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.35, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -248,12 +255,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5728691916613362971, guid: ede17bd3e91db2e4db375e4f6d378c23, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e028dd0fe2807e46929aaaec187b421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 25.326021, y: 40.49}
+  m_Size: {x: 38.690887, y: 40.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

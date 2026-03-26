@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 195294461}
   - component: {fileID: 195294462}
   - component: {fileID: 195294463}
+  - component: {fileID: 195294464}
   m_Layer: 0
   m_Name: PhysicsAndInteractController
   m_TagString: Untagged
@@ -334,6 +335,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   cam: {fileID: 2088008279}
   followCursor: {fileID: 2088008281}
+--- !u!114 &195294464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195294456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945e6314b7c43084abc7c75b59941138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  cam: {fileID: 2094084038}
 --- !u!1001 &303685207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2062,6 +2076,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 54649091704738055, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: LayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3334823169758487536, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: m_Name
       value: WashRoom
@@ -2082,6 +2104,14 @@ PrefabInstance:
       propertyPath: PhysicsController
       value: 
       objectReference: {fileID: 195294456}
+    - target: {fileID: 5970906745657579849, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214637550877849212, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9017130672350913957, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50.95
