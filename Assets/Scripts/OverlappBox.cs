@@ -12,6 +12,9 @@ public class OverlappBox : MonoBehaviour
     public CharacterMainScript PlayerScript;
     private bool IsActive;
     
+    public InteractWashingMachine InwashingMachine;
+    public CreateGrabableItem createGrabableItem;
+    
     private Keyboard keyboard = Keyboard.current;
     /*
     IEnumerator Delay()
@@ -48,23 +51,20 @@ public class OverlappBox : MonoBehaviour
         cam2.targetDisplay = 1;
         Cursor.visible = true;
         PlayerScript.enabled = false;
+        
+        if (InwashingMachine.GetComponent<InteractWashingMachine>().startwash)
+        {
+            createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cam2.targetDisplay == 0)
+        if (keyboard.eKey.wasPressedThisFrame && PlayerScript.isInteractActive && bisOverlapping && cam2.targetDisplay == 0)
         {
-            if (bisOverlapping)
-            {
-                if (keyboard.eKey.wasPressedThisFrame && PlayerScript.isInteractActive)
-                {
-                    //Debug.Log(PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive);
-                    SwitchScene();
-                }
-
-            }
-            
+            //Debug.Log(PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive);
+            SwitchScene();
         }
     }
 }

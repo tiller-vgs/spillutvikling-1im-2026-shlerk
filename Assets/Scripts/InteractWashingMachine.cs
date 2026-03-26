@@ -5,13 +5,12 @@ public class InteractWashingMachine : MonoBehaviour
 {
     
     public Camera cam;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public LayerMask LayerMask;
+    public WashingMachineScript washingMachine;
+    public CreateGrabableItem createGrabableItem;
 
-    // Update is called once per frame
+    public bool startwash = true;
+
     void Update()
     {
         if (cam.targetDisplay == 0)
@@ -23,9 +22,13 @@ public class InteractWashingMachine : MonoBehaviour
         
             Vector3 WorldPos = cam.ScreenToWorldPoint(MousePos);
 
-            if (Mouse.current.leftButton.wasPressedThisFrame)
+            Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
+            if (Mouse.current.leftButton.wasPressedThisFrame && collider)
             {
-                Debug.Log("SIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMA");
+                washingMachine.GetComponent<WashingMachineScript>().OpenWashingMachine();
+                Mathf.Clamp(washingMachine.GetComponent<WashingMachineScript>().CleanClothing++, 0,5);
+                createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = true;
+                startwash = false;
             }
         }
     }

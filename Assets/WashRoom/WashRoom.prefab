@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7101154493810656713, guid: 526867625a3433d4c8280e8c3e25156b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 7101154493810656713, guid: 526867625a3433d4c8280e8c3e25156b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -747,7 +747,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 395005630365782231, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8328891
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 395005630365782231, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 395005630365782231, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 395005630365782231, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -796,6 +804,30 @@ PrefabInstance:
     - target: {fileID: 1100221160916059187, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
       propertyPath: LayerMask.m_Bits
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037054384972984569, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2789162867074680406, guid: c2c9168f2a2559c4aa2346b0aed8ecab, type: 3}
+    - target: {fileID: 5087627526788192638, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087627526788192638, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087627526788192638, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393067549146199322, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_Size.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393067549146199322, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: m_Size.y
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8287314578409167044, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
       propertyPath: m_Icon

@@ -328,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195294456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aee8076b8b2712645856c3ea2578a962, type: 3}
   m_Name: 
@@ -348,6 +348,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   cam: {fileID: 2094084038}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  washingMachine: {fileID: 1907997434}
+  createGrabableItem: {fileID: 345478699}
+  startwash: 0
 --- !u!1001 &303685207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,6 +424,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2423369948183064215, guid: 2a515aaf8f1ac4d41805a1385c133be8, type: 3}
   m_PrefabInstance: {fileID: 303685207}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &345478699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5024006859263480799, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+  m_PrefabInstance: {fileID: 2094084037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcb5ded3de19a245ac17064ee3ac1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &388799021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1450,6 +1467,14 @@ PrefabInstance:
       propertyPath: PlayerScript
       value: 
       objectReference: {fileID: 1299132778}
+    - target: {fileID: 619356685305851721, guid: 2e00d5b02571c7b43ba8b99360f03106, type: 3}
+      propertyPath: InwashingMachine
+      value: 
+      objectReference: {fileID: 195294464}
+    - target: {fileID: 619356685305851721, guid: 2e00d5b02571c7b43ba8b99360f03106, type: 3}
+      propertyPath: createGrabableItem
+      value: 
+      objectReference: {fileID: 345478699}
     - target: {fileID: 7592640313193889560, guid: 2e00d5b02571c7b43ba8b99360f03106, type: 3}
       propertyPath: m_Name
       value: OverlapInteractBox (1)
@@ -1612,6 +1637,14 @@ PrefabInstance:
       propertyPath: PlayerScript
       value: 
       objectReference: {fileID: 1299132778}
+    - target: {fileID: 619356685305851721, guid: 2e00d5b02571c7b43ba8b99360f03106, type: 3}
+      propertyPath: InwashingMachine
+      value: 
+      objectReference: {fileID: 195294464}
+    - target: {fileID: 619356685305851721, guid: 2e00d5b02571c7b43ba8b99360f03106, type: 3}
+      propertyPath: createGrabableItem
+      value: 
+      objectReference: {fileID: 345478699}
     - target: {fileID: 1618936823282080870, guid: 2e00d5b02571c7b43ba8b99360f03106, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -1911,6 +1944,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc8235ca261154481f833e0ae0123b, type: 3}
+--- !u!114 &1907997434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+  m_PrefabInstance: {fileID: 2094084037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9290f1bc582df2b40a7fb82edd1ce2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WashingMachineScript
 --- !u!1 &2088008276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2124,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: InwashingMachine
+      value: 
+      objectReference: {fileID: 195294464}
     - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: LayerMask.m_Bits
       value: 256
