@@ -17,8 +17,10 @@ public class QueueManager : MonoBehaviour
     
     private Vector3 SpawnPoint;
 
-    private float timer = 0;
+    private float soundTimer = 0;
+    private float customerSpawnTimer;
     private float timeUntilVoiceActivation = 0;
+    private float timeUntilCustomerSpawn = 0;
     private Keyboard keyboard = Keyboard.current;
     
     // Hvem gjorde dette her 😭
@@ -41,15 +43,24 @@ public class QueueManager : MonoBehaviour
 
         if (Cam.targetDisplay == 0)
         {
-            timer += Time.deltaTime;
-            if (timer >= timeUntilVoiceActivation)
+            soundTimer += Time.deltaTime;
+            if (soundTimer >= timeUntilVoiceActivation)
             {
                 timeUntilVoiceActivation = Random.Range(3f, 10f);
                 if (customers.Count > 0){
                     customers.Peek().GetComponent<CustomerScript>().playRandomVoiceLine();
                 }
-                timer = 0;
+                soundTimer = 0;
             }
+        }
+
+        customerSpawnTimer += Time.deltaTime;
+        if (customerSpawnTimer >= timeUntilCustomerSpawn)
+        {
+            // Skal bli styrt av logic script senere
+            timeUntilCustomerSpawn = Random.Range(15f, 60f);
+            AddCustomer(1);
+            customerSpawnTimer = 0;
         }
 
         if (customers.Count > 0)
@@ -69,7 +80,7 @@ public class QueueManager : MonoBehaviour
             firstCustomer.DecreaseMood(moodDrain);
         }
 
-        if(customers.Peek().GetComponent<CustomerScript>().moodMeter <= 0)
+        if(customers.Count > 0 && customers.Peek().GetComponent<CustomerScript>().moodMeter <= 0)
         {
             RemoveCustomer();
         }
