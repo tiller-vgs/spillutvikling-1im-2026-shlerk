@@ -802,6 +802,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8734017415892768135}
     - target: {fileID: 1100221160916059187, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
+      propertyPath: PhysicsObj
+      value: 
+      objectReference: {fileID: 3406542798179931139, guid: 3ecb066a328417e4da8d9fa705c7f420, type: 3}
+    - target: {fileID: 1100221160916059187, guid: c32611684ac0b434b8bba941e69beb4d, type: 3}
       propertyPath: LayerMask.m_Bits
       value: 128
       objectReference: {fileID: 0}
