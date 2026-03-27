@@ -10,6 +10,7 @@ public class RotateReception : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (cam.targetDisplay == 0)
         {
             Debug.Log("Bisturned2123r3r4g34rg34g3rg34g");
@@ -25,5 +26,6 @@ public class RotateReception : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0,0,0);
             }
         }
+        */
     }
 }

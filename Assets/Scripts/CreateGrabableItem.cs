@@ -10,6 +10,8 @@ public class CreateGrabableItem : MonoBehaviour
     public Camera cam;
     public GameObject PhysicsObj;
     public GameObject PhysicsController;
+    
+    public bool CanInteract = true;
 
     private bool bCreatedObj = false;
     
@@ -21,23 +23,27 @@ public class CreateGrabableItem : MonoBehaviour
     }
     void Update()
     {
-        Vector3 MousePos = Mouse.current.position.ReadValue();
-        MousePos.z = Mathf.Abs(cam.transform.position.z);
-        Vector2 MouseWPO = cam.ScreenToWorldPoint(MousePos);
-        RaycastHit2D hit = Physics2D.Raycast(MouseWPO, Vector2.zero);
-        
-        Vector3 WorldPos = cam.ScreenToWorldPoint(MousePos);
-
-        if (Mouse.current.leftButton.wasPressedThisFrame && !bCreatedObj)
+        if (CanInteract && cam.targetDisplay == 0)
         {
-            Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
-            if (collider)
+            Vector3 MousePos = Mouse.current.position.ReadValue();
+            MousePos.z = Mathf.Abs(cam.transform.position.z);
+            Vector2 MouseWPO = cam.ScreenToWorldPoint(MousePos);
+            RaycastHit2D hit = Physics2D.Raycast(MouseWPO, Vector2.zero);
+        
+            Vector3 WorldPos = cam.ScreenToWorldPoint(MousePos);
+
+            if (Mouse.current.leftButton.wasPressedThisFrame && !bCreatedObj)
             {
-                StartCoroutine(ResetCreatedObj());
-                bCreatedObj = true;
-                Debug.Log("hasInteracted with Cloth");
-                Instantiate(PhysicsObj, WorldPos, transform.rotation);
-                //PhysicsController.GameObject().GetComponent<DragAndDropAuto>().AttachPhysics();
+                Collider2D collider = Physics2D.OverlapPoint(WorldPos, LayerMask);
+                if (collider)
+                {
+                    CanInteract = false;
+                    StartCoroutine(ResetCreatedObj());
+                    bCreatedObj = true;
+                    Debug.Log("hasInteracted with Cloth");
+                    Instantiate(PhysicsObj, WorldPos, transform.rotation);
+                    PhysicsController.GameObject().GetComponent<DragAndDropAuto>().AttachPhysics();
+                }
             }
         }
     }
