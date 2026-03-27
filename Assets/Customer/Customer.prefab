@@ -27,9 +27,9 @@ Transform:
   m_GameObject: {fileID: 2236426468779401934}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.39108497, y: 0.38851348, z: -0.08}
-  m_LocalScale: {x: 0.02, y: 0.04, z: 0.04}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -0.091084, y: 2.0885143, z: -0.6300012}
+  m_LocalScale: {x: 0.11, y: 0.22, z: 0.22}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1769443865790751870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,8 +94,8 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 60
   m_FontStyle: 0
@@ -130,9 +130,9 @@ Transform:
   m_GameObject: {fileID: 3658931681140258327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.99, y: 5.39, z: -0.39999998}
-  m_LocalScale: {x: 11.89, y: 5.92, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 10.3, y: 10, z: -2.85}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7482967473596371900}
   m_Father: {fileID: 2906373722955004293}
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -4087030003688645435, guid: 76ac1f52b5ff9724797eef6292fdfb4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -320,6 +320,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e556d457a1e62ed4398b37469f03542d, type: 3}
   phrase: {fileID: 2378287672561619078}
   moodMeterDisplay: {fileID: 6206665591250333426}
+  moodMeterDecreases: 0
 --- !u!82 &8415989424627062823
 AudioSource:
   m_ObjectHideFlags: 0
@@ -446,7 +447,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 10.89, z: -0.49999997}
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2906373722955004293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
