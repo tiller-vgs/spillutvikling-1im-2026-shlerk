@@ -12,6 +12,7 @@ public class DragAndDropAuto : MonoBehaviour
     private TargetJoint2D TargetJoint;
     public Camera cam;
     private Vector3 WorldPos;
+    public CreateGrabableItem grabitem;
 
     /*
     private void OnMouseDown()
@@ -40,7 +41,7 @@ public class DragAndDropAuto : MonoBehaviour
    
     void Update()
     {
-        if (cam.targetDisplay == 0)
+        if (cam.targetDisplay == 0 )
         {
             Vector3 MousePos = Mouse.current.position.ReadValue();
             MousePos.z = Mathf.Abs(cam.transform.position.z);
@@ -51,7 +52,7 @@ public class DragAndDropAuto : MonoBehaviour
             WorldPos = cam.ScreenToWorldPoint(MousePos);
             
             
-            if (Mouse.current.leftButton.wasPressedThisFrame)
+            if (Mouse.current.leftButton.wasPressedThisFrame && grabitem.GetComponent<CreateGrabableItem>().CanInteract)
             {
                 AttachPhysics();
             }

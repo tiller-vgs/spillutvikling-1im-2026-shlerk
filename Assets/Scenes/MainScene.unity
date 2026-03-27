@@ -450,6 +450,7 @@ MonoBehaviour:
   Damping: 1
   Frequency: 5
   cam: {fileID: 2094084038}
+  grabitem: {fileID: 345478699}
 --- !u!114 &195294463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +723,11 @@ PrefabInstance:
       value: Map
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7675265387973631751, guid: 1ad0e92a1e3815646a17b48558e918d5, type: 3}
+    - {fileID: 972956050306816252, guid: 1ad0e92a1e3815646a17b48558e918d5, type: 3}
+    - {fileID: 3805276210789776508, guid: 1ad0e92a1e3815646a17b48558e918d5, type: 3}
+    - {fileID: 8963862750793231015, guid: 1ad0e92a1e3815646a17b48558e918d5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ad0e92a1e3815646a17b48558e918d5, type: 3}
@@ -2503,6 +2508,26 @@ PrefabInstance:
     - target: {fileID: 54649091704738055, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: cleancloth
+      value: 
+      objectReference: {fileID: 1062976623369226114, guid: 8dc3d6e4c6704f34d8dc46606f1b8464, type: 3}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: CreateGrabItem
+      value: 
+      objectReference: {fileID: 345478699}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: cleanclothpos.x
+      value: -1.894
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: cleanclothpos.y
+      value: -0.945
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
+      propertyPath: cleanclothpos.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3033440295789368872, guid: 4694ff6593f1772418a0f48454b08f57, type: 3}
       propertyPath: InwashingMachine

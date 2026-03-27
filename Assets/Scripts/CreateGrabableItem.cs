@@ -23,7 +23,7 @@ public class CreateGrabableItem : MonoBehaviour
     }
     void Update()
     {
-        if (CanInteract)
+        if (CanInteract && cam.targetDisplay == 0)
         {
             Vector3 MousePos = Mouse.current.position.ReadValue();
             MousePos.z = Mathf.Abs(cam.transform.position.z);
@@ -42,7 +42,7 @@ public class CreateGrabableItem : MonoBehaviour
                     bCreatedObj = true;
                     Debug.Log("hasInteracted with Cloth");
                     Instantiate(PhysicsObj, WorldPos, transform.rotation);
-                    //PhysicsController.GameObject().GetComponent<DragAndDropAuto>().AttachPhysics();
+                    PhysicsController.GameObject().GetComponent<DragAndDropAuto>().AttachPhysics();
                 }
             }
         }

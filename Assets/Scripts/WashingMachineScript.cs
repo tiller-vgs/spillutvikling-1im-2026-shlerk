@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class WashingMachineScript : MonoBehaviour
 {
@@ -15,21 +16,25 @@ public class WashingMachineScript : MonoBehaviour
     public Sprite Closed;
     public Sprite OpenOff;
     public Sprite OpenOn;
-    
-    public float removeclothtime = 20f;
-    public float washtime = 15f;
 
-    public int CleanClothing = 3;
+    public List<GameObject> clothing;
+    
+    public float removeclothtime = 5f;
+    public float washtime = 3f;
+
+    public int CleanClothing = 10;
     private bool bDone;
 
     private bool iswaitingremove;
     
+    private int i = 0;
+    
     public InteractWashingMachine InwashingMachine;
-
-
-    public SpriteRenderer spirterend;
-    public Sprite cleancloth;
-
+    public CreateGrabableItem CreateGrabItem;
+    
+    public SpriteRenderer spriteRenderer;
+    public Vector3 cleanclothpos;
+    public GameObject cleancloth;
 
     IEnumerator WahingMachineCycle()
     {
@@ -40,21 +45,49 @@ public class WashingMachineScript : MonoBehaviour
     }
     IEnumerator RemoveCleanClothing()
     {
-        yield return new WaitForSeconds(removeclothtime);
-        iswaitingremove = false;
-        Mathf.Clamp(CleanClothing -= 1, 0,5);
-        text.text = CleanClothing.ToString();
+        if (CleanClothing >= 1)
+        {
+            yield return new WaitForSeconds(removeclothtime);
+            iswaitingremove = false;
+            //Mathf.Clamp(CleanClothing -= 1, 0,5);
+            CleanClothing -= 1;
+            text.text = CleanClothing.ToString();
+            //GameObject newsprite = ];
+            Debug.Log(clothing.Count);
+            Destroy(clothing[clothing.Count -1]);
+            clothing.RemoveAt(clothing.Count -1 );
+            cleanclothpos = new Vector3(cleanclothpos.x, cleanclothpos.y - (0.2f), cleanclothpos.z);
+            Debug.Log(clothing);
+        }
     }
     
-    void Start()
+    void Awake()
     {
+        //clothing = new List<GameObject>();
+        cleanclothpos = spriteRenderer.transform.position;
         text.text = CleanClothing.ToString();
         sprite.sprite = Closed;
+        AddClothing(CleanClothing);
+    }
+    
+    public void AddClothing(int amount)
+    {
+        //lage like mange kunder som antall kunder si
+        for (i=0; i < amount; i++)
+        {
+            clothing.Add(Instantiate(cleancloth, cleanclothpos, transform.rotation));
+            cleanclothpos = new Vector3(cleanclothpos.x, cleanclothpos.y + (0.2f), cleanclothpos.z);
+        }
     }
 
     void Update()
     {
         //text.text = count.ToString();
+        if (!iswaitingremove)
+        {
+            iswaitingremove = true;
+            StartCoroutine(RemoveCleanClothing());
+        }
     }
 
     public void OpenWashingMachine()
@@ -65,11 +98,7 @@ public class WashingMachineScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(MouseWPO, Vector2.zero);
         
         Vector3 WorldPos = cam.ScreenToWorldPoint(MousePos);
-
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            Debug.Log("SIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMASIGMA");
-        }
+        
         if (bDone && Mouse.current.leftButton.wasPressedThisFrame)
         {
             InwashingMachine.GetComponent<InteractWashingMachine>().startwash = true;
@@ -77,14 +106,13 @@ public class WashingMachineScript : MonoBehaviour
             bDone = false;
             count = 0;
             Mathf.Clamp(CleanClothing++, 0,5);
+            AddClothing(1);
+            Instantiate(cleancloth, new Vector3(cleanclothpos.x, cleanclothpos.y + (CleanClothing*10), cleanclothpos.z), Quaternion.identity);
+            text.text = CleanClothing.ToString();
+            CreateGrabItem.GetComponent<CreateGrabableItem>().CanInteract = true;
         }
-
-        if (!iswaitingremove)
-        {
-            iswaitingremove = true;
-            StartCoroutine(RemoveCleanClothing());
-        }
-        GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Physics");
+        
+        GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Phys");
         
         foreach (GameObject obj in objectsToDestroy)
         {
@@ -98,16 +126,17 @@ public class WashingMachineScript : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Phys") && count == 0)
         {
+            InwashingMachine.GetComponent<InteractWashingMachine>().startwash = false;
             bisOverlapping = true;
             count = 1;
             sprite.sprite = OpenOn;
             Destroy(collision.gameObject);
             StartCoroutine(WahingMachineCycle());
+            CreateGrabItem.GetComponent<CreateGrabableItem>().CanInteract = false;
         }
         else
         {
             bisOverlapping = false;
         }
-        
     }
 }

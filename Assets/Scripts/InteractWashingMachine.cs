@@ -11,6 +11,11 @@ public class InteractWashingMachine : MonoBehaviour
 
     public bool startwash = true;
 
+
+    void Start()
+    {
+        startwash = true;
+    }
     void Update()
     {
         if (cam.targetDisplay == 0)
@@ -27,8 +32,6 @@ public class InteractWashingMachine : MonoBehaviour
             {
                 washingMachine.GetComponent<WashingMachineScript>().OpenWashingMachine();
                 //washingMachine.GetComponent<WashingMachineScript>().AddClothToPile();
-                createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = true;
-                startwash = false;
             }
         }
     }

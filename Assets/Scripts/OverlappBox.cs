@@ -51,10 +51,20 @@ public class OverlappBox : MonoBehaviour
         cam2.targetDisplay = 1;
         Cursor.visible = true;
         PlayerScript.enabled = false;
+        GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Phys");
+        
+        foreach (GameObject obj in objectsToDestroy)
+        {
+            Destroy(obj);
+        }
         
         if (InwashingMachine.GetComponent<InteractWashingMachine>().startwash)
         {
             createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = true;
+        }
+        else
+        {
+            createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = false;
         }
     }
 
