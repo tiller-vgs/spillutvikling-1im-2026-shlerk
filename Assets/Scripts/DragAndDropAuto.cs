@@ -50,7 +50,7 @@ public class DragAndDropAuto : MonoBehaviour
     
             WorldPos = cam.ScreenToWorldPoint(MousePos);
             
-
+            
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 AttachPhysics();

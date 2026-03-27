@@ -26,7 +26,7 @@ public class InteractWashingMachine : MonoBehaviour
             if (Mouse.current.leftButton.wasPressedThisFrame && collider)
             {
                 washingMachine.GetComponent<WashingMachineScript>().OpenWashingMachine();
-                Mathf.Clamp(washingMachine.GetComponent<WashingMachineScript>().CleanClothing++, 0,5);
+                //washingMachine.GetComponent<WashingMachineScript>().AddClothToPile();
                 createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = true;
                 startwash = false;
             }

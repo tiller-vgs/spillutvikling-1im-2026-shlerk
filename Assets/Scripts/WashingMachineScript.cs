@@ -27,6 +27,10 @@ public class WashingMachineScript : MonoBehaviour
     public InteractWashingMachine InwashingMachine;
 
 
+    public SpriteRenderer spirterend;
+    public Sprite cleancloth;
+
+
     IEnumerator WahingMachineCycle()
     {
         yield return new WaitForSeconds(washtime);
@@ -72,6 +76,7 @@ public class WashingMachineScript : MonoBehaviour
             sprite.sprite = Closed;
             bDone = false;
             count = 0;
+            Mathf.Clamp(CleanClothing++, 0,5);
         }
 
         if (!iswaitingremove)
