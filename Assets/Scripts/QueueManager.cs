@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class QueueManager : MonoBehaviour
 {
     public GameObject customerPrefab;
 
     public int antallKunda;
+    public float moveSpeed = 2f;
     public Vector2 offset;
     public Camera Cam;
 
@@ -15,8 +17,10 @@ public class QueueManager : MonoBehaviour
     
     private Vector3 SpawnPoint;
 
-    private float timer = 0;
+    private float soundTimer = 0;
+    private float customerSpawnTimer;
     private float timeUntilVoiceActivation = 0;
+    private float timeUntilCustomerSpawn = 0;
     private Keyboard keyboard = Keyboard.current;
     
     // Hvem gjorde dette her 😭
@@ -35,17 +39,28 @@ public class QueueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateQueuePos();
+
         if (Cam.targetDisplay == 0)
         {
-            timer += Time.deltaTime;
-            if (timer >= timeUntilVoiceActivation)
+            soundTimer += Time.deltaTime;
+            if (soundTimer >= timeUntilVoiceActivation)
             {
                 timeUntilVoiceActivation = Random.Range(3f, 10f);
                 if (customers.Count > 0){
                     customers.Peek().GetComponent<CustomerScript>().playRandomVoiceLine();
                 }
-                timer = 0;
+                soundTimer = 0;
             }
+        }
+
+        customerSpawnTimer += Time.deltaTime;
+        if (customerSpawnTimer >= timeUntilCustomerSpawn)
+        {
+            // Skal bli styrt av logic script senere
+            timeUntilCustomerSpawn = Random.Range(15f, 60f);
+            AddCustomer(1);
+            customerSpawnTimer = 0;
         }
 
         if (customers.Count > 0)
@@ -63,6 +78,11 @@ public class QueueManager : MonoBehaviour
             }
 
             firstCustomer.DecreaseMood(moodDrain);
+        }
+
+        if(customers.Count > 0 && customers.Peek().GetComponent<CustomerScript>().moodMeter <= 0)
+        {
+            RemoveCustomer();
         }
 
         if (keyboard.oKey.wasPressedThisFrame)
@@ -94,7 +114,11 @@ public class QueueManager : MonoBehaviour
                 pos.z + offset.y * index
             );
 
-            customer.transform.position = targetpos;
+            customer.transform.position = Vector3.Lerp(
+                customer.transform.position,
+                targetpos,
+                moveSpeed * Time.deltaTime
+            );
             index++;
         }
     }
@@ -104,15 +128,13 @@ public class QueueManager : MonoBehaviour
         if (customers.Count > 0)
         {
             GameObject removedCustomer = customers.Dequeue();
-            Destroy(removedCustomer);
-
-            UpdateQueuePos();
+            StartCoroutine(SlideOffScreen(removedCustomer));
         }
     }
 
     public void AddCustomer(int amount)
     {
-        SpawnPoint = transform.position;
+        SpawnPoint = new Vector3(transform.position.x - 20, transform.position.y, transform.position.z + 8);
         //lage like mange kunder som antall kunder si
         for (i=0; i < amount; i++)
         {
@@ -120,7 +142,34 @@ public class QueueManager : MonoBehaviour
             
             customers.Enqueue(Instantiate(customerPrefab, SpawnPoint, transform.rotation));
             SpawnPoint = new (SpawnPoint.x+offset.x, SpawnPoint.y, SpawnPoint.z+offset.y);
-            UpdateQueuePos();
         }
+    }
+
+    private IEnumerator SlideOffScreen(GameObject customer)
+    {
+        Vector3 startPos = customer.transform.position;
+
+        // Move off screen (adjust direction if needed)
+        Vector3 endPos = startPos + new Vector3(15, 0, 0);
+
+        float duration = 1.0f;
+        float time = 0;
+
+        while (time < duration)
+        {
+            customer.transform.position = Vector3.Lerp(
+                startPos,
+                endPos,
+                time / duration
+            );
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure final position
+        customer.transform.position = endPos;
+
+        Destroy(customer);
     }
 }
