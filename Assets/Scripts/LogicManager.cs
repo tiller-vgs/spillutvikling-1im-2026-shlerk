@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class LogicManager : MonoBehaviour
 {
     public uint score;
     public bool isPaused;
+    public TextMeshProUGUI text;
 
     void Update()
     {
@@ -19,5 +21,7 @@ public class LogicManager : MonoBehaviour
                 case true: isPaused = false; break;
             }
         }
+
+        text.text = score.ToString();
     }
 }
