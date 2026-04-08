@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 public class QueueManager : MonoBehaviour
 {
     public GameObject customerPrefab;
+    public LogicManager logicManager;
 
     public int antallKunda;
     public float moveSpeed = 2f;
@@ -83,9 +84,10 @@ public class QueueManager : MonoBehaviour
         if(customers.Count > 0 && customers.Peek().GetComponent<CustomerScript>().moodMeter <= 0)
         {
             RemoveCustomer();
+            logicManager.score -= 20;
         }
 
-        if (keyboard.oKey.wasPressedThisFrame)
+        /*if (keyboard.oKey.wasPressedThisFrame)
         {
             AddCustomer(1);
         }
@@ -93,7 +95,7 @@ public class QueueManager : MonoBehaviour
         if (keyboard.pKey.wasPressedThisFrame)
         {
             RemoveCustomer();
-        }
+        }*/
     }
 
     private IEnumerator Voicelines()
