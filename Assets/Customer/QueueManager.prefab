@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf0fcc217129da45b53d008591e3e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  customerPrefab: {fileID: 5722045232237565750, guid: fd0430421aebdba428515b559ae5a93c, type: 3}
+  antallKunda: 4
+  offset: {x: 2, y: 2}

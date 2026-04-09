@@ -1,52 +1,80 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class OverlappBox : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Camera cam;
     public Camera cam2;
-    private bool isOverlapping = false;
+    private bool bisOverlapping = false;
     public CharacterMainScript PlayerScript;
+    private bool IsActive;
     
+    public InteractWashingMachine InwashingMachine;
+    public CreateGrabableItem createGrabableItem;
+    
+    private Keyboard keyboard = Keyboard.current;
+    /*
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f);
+        PlayerScript.GameObject().GetComponent<CharacterMainScript>().IsInteractActive = true;
+    }
+    */
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (!collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isOverlapping = true;
+            bisOverlapping = true;
         }
         else
         {
-            isOverlapping = false;
+            bisOverlapping = false;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        isOverlapping = false;
+        bisOverlapping = false;
     }
-    void Start()
+
+    void SwitchScene()
     {
+        //Debug.Log("TESTESTESTESTESTESTESTSESTSETSETES");
+        //bytte kamera
+        PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive = false;
+        StartCoroutine(PlayerScript.GameObject().GetComponent<CharacterMainScript>().ResetInteract());
+        cam.targetDisplay = 0;
+        cam2.targetDisplay = 1;
+        Cursor.visible = true;
+        PlayerScript.enabled = false;
+        GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Phys");
         
+        foreach (GameObject obj in objectsToDestroy)
+        {
+            Destroy(obj);
+        }
+        
+        if (InwashingMachine.GetComponent<InteractWashingMachine>().startwash)
+        {
+            createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = true;
+        }
+        else
+        {
+            createGrabableItem.GetComponent<CreateGrabableItem>().CanInteract = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isOverlapping)
+        if (keyboard.eKey.wasPressedThisFrame && PlayerScript.isInteractActive && bisOverlapping && cam2.targetDisplay == 0)
         {
-            var keyboard = Keyboard.current;
-            if (keyboard.eKey.isPressed)
-            {
-                //bytte kamera'
-                cam.targetDisplay = 0;
-                cam2.targetDisplay = 1;
-                Cursor.visible = true;
-                PlayerScript.enabled = false;
-            }
-
+            //Debug.Log(PlayerScript.GameObject().GetComponent<CharacterMainScript>().isInteractActive);
+            SwitchScene();
         }
-        
     }
 }

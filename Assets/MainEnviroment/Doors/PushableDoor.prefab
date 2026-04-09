@@ -162,6 +162,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   CloseSpeed: 5
   CloseSpeedMax: 200
+  creakSounds:
+  - {fileID: 8300000, guid: d6a665d652605e74b9b7ada5775f95f2, type: 3}
+  - {fileID: 8300000, guid: ecfe138f1b888f14ca08d3718dfa8b79, type: 3}
+  - {fileID: 8300000, guid: 5bbc27df2de644f4d96935e310ae0d7c, type: 3}
+  creakVolumeMultiplier: 1
+  creakAngleChangeThreshold: 0.5
+  creakCooldown: 0.3
 --- !u!61 &4038573965990026326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,7 +213,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.005, y: 0.20939976}
+  m_Size: {x: 1.8, y: 0.20939976}
   m_EdgeRadius: 0
 --- !u!1 &7606769851849900181
 GameObject:
@@ -301,6 +308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 373d5dc36662073448fc857053cdab67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f27f6e83d649784782099d5a86b750e, type: 2}
     - target: {fileID: 919132149155446097, guid: 373d5dc36662073448fc857053cdab67, type: 3}
       propertyPath: m_Name
       value: door
@@ -367,5 +378,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.02, y: 0.0021358258}
+  m_Size: {x: 0.018, y: 0.0021358258}
   m_EdgeRadius: 0
